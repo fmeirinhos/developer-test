@@ -1,5 +1,38 @@
 # Developer Technical Test
 
+## How to run it
+
+Install the required packages via:
+
+`pip install -r requirements.txt`
+
+### Running the CLI
+
+You can run the CLI via:
+
+`python give-me-the-odds.py`
+
+### Running the Web Application
+
+You can run the web application via:
+
+`python src/app.py`
+
+Read in the terminal on which URL you can find it.
+
+### Testing
+
+You can run the unit tests via:
+
+`python -m unittest discover tests`
+
+### Notes
+
+1. Since I do not know frontend, the website is super minimal!
+2. The CLI can be made an "executable" by `chmod +x give-me-the-odds.py`. This could have been made automatic with a `setup.py` but I thought that would be overkill
+3. The requirement that "the path [of routes_db] can be either absolute or relative to the location of the millennium-falcon.json file itself." is incompatible with security requirements of user-uploaded files. Since all databases were the same, the `universe.db` is located inside `/src`. This is quite reasonable since the universe should be constant.
+4. The code is OOP-free since I believe that such patterns are not necessary for this task.
+
 ## What are the odds?
 
 The Death Star - the Empire's ultimate weapon - is almost operational and is currently approaching the Endor planet. The countdown has started.
