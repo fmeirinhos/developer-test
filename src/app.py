@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
-import os
+from flask import Flask, render_template, request
 import json
-import tempfile
 from backend import solve
 
 app = Flask(__name__)
@@ -13,16 +11,10 @@ def index():
         mf_file = request.files['mf_file']
         e_file = request.files['e_file']
 
-        mf_temp_path = tempfile.mktemp(suffix='.json')
-        e_temp_path = tempfile.mktemp(suffix='.json')
+        mf_content = json.load(mf_file)
+        e_content = json.load(e_file)
 
-        mf_file.save(mf_temp_path)
-        e_file.save(e_temp_path)
-
-        result = solve(mf_temp_path, e_temp_path)
-
-        os.remove(mf_temp_path)
-        os.remove(e_temp_path)
+        result = solve(mf_content, e_content)
 
     return render_template('index.html', result=result)
 

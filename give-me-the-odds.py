@@ -4,7 +4,7 @@ import sys
 sys.path.append('src')
 
 import argparse
-from backend import solve
+from backend import solve, parse_json
 
 def main():
     parser = argparse.ArgumentParser(description="Calculate the probability of success.")
@@ -13,7 +13,7 @@ def main():
 
     args = parser.parse_args()
     
-    result = solve(args.millennium_falcon, args.empire)
+    result = solve(parse_json(args.millennium_falcon), parse_json(args.empire))
     
     print(result * 100)
 
